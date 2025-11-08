@@ -36,23 +36,23 @@ function addTask() {
 // === Create Task Element ===
 function createTaskElement(task) {
   const li = document.createElement("li");
-  li.classList.add(priority-${task.priority.toLowerCase()});
+  li.classList.add(`priority-${task.priority.toLowerCase()}`);
   if (task.completed) li.classList.add("completed");
 
   const taskInfo = document.createElement("div");
   taskInfo.classList.add("task-info");
-  taskInfo.innerHTML = 
-    <strong>${task.text}</strong>
-    <div class="task-meta">${task.category} • ${task.priority}</div>
-  ;
+  taskInfo.innerHTML = `
+  <strong>${task.text}</strong>
+  <div class="task-meta">${task.category} • ${task.priority}</div>
+`;
 
   const buttons = document.createElement("div");
   buttons.classList.add("action-btns");
-  buttons.innerHTML = 
-    <button class="complete-btn">✔️</button>
-    <button class="edit-btn">✏️</button>
-    <button class="delete-btn">❌</button>
-  ;
+  buttons.innerHTML = `
+  <button class="complete-btn">✔️</button>
+  <button class="edit-btn">✏️</button>
+  <button class="delete-btn">❌</button>
+`;
 
   // === Button Actions ===
   buttons.querySelector(".complete-btn").addEventListener("click", () => {
@@ -114,3 +114,4 @@ function filterTasks() {
       selected === "All" || li.dataset.category === selected ? "flex" : "none";
   });
 }
+
